@@ -33,4 +33,12 @@ Running PlayBooks
   ansible-playbook ARCHIVO.yml
   
 ************************************************************************************************************************************************************************
+Module Documentation
+
+  ansible-doc -l  --> Muestra los diferentes packages disponibles
+  
+  ansible-doc yum --> Muestra los detalles de las opciones del modulo yum
+
+  
+************************************************************************************************************************************************************************
 
