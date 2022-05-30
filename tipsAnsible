@@ -41,4 +41,37 @@ Module Documentation
 
   
 ************************************************************************************************************************************************************************
+Naming Variables
+ Valid Variables names: web_server, remote_file, file_1 or file1, remote_server_1, remote_server1
+ 
+    Host Variable and group Variables
+            Defining the ansible_user host variable for demo.example.com:
+            [servers]
+            demo.example.com  ansible_user=joe
+    Defining the user group variable for the servers host group.
 
+            [servers]
+            demo1.example.com
+            demo2.example.com
+
+            [servers:vars]
+            user=joe
+            
+    Defining the user group variable for the servers group, which consists of two host groups each with two servers.
+
+            [servers1]
+            demo1.example.com
+            demo2.example.com
+
+            [servers2]
+            demo3.example.com
+            demo4.example.com
+
+            [servers:children]
+            servers1
+            servers2
+
+            [servers:vars]
+            user=joe
+            
+ 
