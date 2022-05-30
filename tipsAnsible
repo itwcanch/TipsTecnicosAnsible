@@ -1,0 +1,36 @@
+IMPORTANT
+Only the space character can be used for indentation; tab characters are not allowed.
+
+If you use the vi text editor, you can apply some settings which might make it easier to edit your playbooks. 
+For example, you can add the following line to your $HOME/.vimrc file, and when vi detects that you are editing a YAML file, 
+it performs a 2-space indentation when you press the Tab key and autoindents subsequent lines.
+
+    autocmd FileType yaml setlocal ai ts=2 sw=2 et
+
+************************************************************************************************************************************************************************
+Running PlayBooks
+  ansible-playbook ARCHIVO.yml
+  
+************************************************************************************************************************************************************************
+Table 2.5. Configuring the Output Verbosity of Playbook Execution
+
+Option	Description
+-v	The task results are displayed.
+-vv	Both task results and task configuration are displayed
+-vvv	Includes information about connections to managed hosts
+-vvvv	Adds extra verbosity options to the connection plug-ins, including users being used in the managed hosts to execute scripts, and what scripts have been executed
+
+
+************************************************************************************************************************************************************************
+
+Syntax Verification
+    ansible-playbook --syntax-check ARCHIVO.yml
+    
+
+************************************************************************************************************************************************************************
+Executing a Dry Run -- Simulacro de ejecución, pero no realiza ningun cambio.
+    ansible-playbook -C ARCHIVO.yml
+
+************************************************************************************************************************************************************************
+
+
