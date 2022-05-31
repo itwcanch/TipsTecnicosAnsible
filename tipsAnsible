@@ -74,4 +74,35 @@ Naming Variables
             [servers:vars]
             user=joe
             
- 
+************************************************************************************************************************************************************************
+
+Table 3.3. Examples of Ansible Facts
+
+Fact	Variable
+Short host name	--> ansible_facts['hostname']
+Fully qualified domain name	--> ansible_facts['fqdn']
+Main IPv4 address (based on routing)	--> ansible_facts['default_ipv4']['address']
+List of the names of all network interfaces --> ansible_facts['interfaces']
+Size of the /dev/vda1 disk partition	--> ansible_facts['devices']['vda']['partitions']['vda1']['size']
+List of DNS servers	--> ansible_facts['dns']['nameservers']
+Version of the currently running kernel	--> ansible_facts['kernel']
+
+Table 3.4. Comparison of Selected Ansible Fact Names
+
+ansible_facts form	Old fact variable form
+ansible_facts['hostname']	--> ansible_hostname
+ansible_facts['fqdn']	--> ansible_fqdn
+ansible_facts['default_ipv4']['address']	--> ansible_default_ipv4['address']
+ansible_facts['interfaces']	ansible_interfaces
+ansible_facts['devices']['vda']['partitions']['vda1']['size']	--> ansible_devices['vda']['partitions']['vda1']['size']
+ansible_facts['dns']['nameservers']	--> ansible_dns['nameservers']
+ansible_facts['kernel']	--> ansible_kernel
+
+************************************************************************************************************************************************************************
+
+The Ansible setup module retrieves facts from systems. Run an ad hoc command to retrieve the facts for all servers in the webserver group. 
+The output displays all the facts gathered for servera.lab.example.com in JSON format. Review some of the variables displayed.
+
+[student@workstation data-facts]$ ansible webserver -m setup
+
+************************************************************************************************************************************************************************
